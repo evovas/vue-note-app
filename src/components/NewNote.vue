@@ -1,7 +1,12 @@
 <template>
   <div class="new-note">
-    <label for="note-title">Title</label>
-    <input v-model="note.title" type="text" id="note-title">
+    <div class="new-note__header">
+      <div class="new-note__title-wrapper">
+        <label for="note-title">Title</label>
+        <input v-model="note.title" type="text" id="note-title">
+      </div>
+      <PriorityChooser />
+    </div>
     <label for="note-description">Description</label>
     <textarea v-model="note.description" id="note-description"></textarea>
     <button class="btn btnPrimary" @click="addNote">New note</button>
@@ -9,8 +14,13 @@
 </template>
 
 <script>
+import PriorityChooser from "@/components/PriorityChooser";
+
 export default {
   name: "NewNote",
+  components: {
+    PriorityChooser,
+  },
   props: {
     note: {
       type: Object,
@@ -29,6 +39,14 @@ export default {
   .new-note {
     text-align: center;
     margin-bottom: 36px;
+
+    &__title-wrapper {
+      flex-grow: 1;
+    }
+
+    &__header {
+      display: flex;
+    }
 
     textarea {
       margin-bottom: 20px;

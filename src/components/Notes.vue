@@ -3,7 +3,7 @@
     <div class="note" :class="{ full: !grid }" v-for="(note, index) in notes" :key="index">
       <div class="note-header" :class="{ full: !grid }">
         <h2>{{ note.title }}</h2>
-        <p style="cursor: pointer" @click="removeNote(index)">x</p>
+        <p @click="removeNote(index)">x</p>
       </div>
       <div class="note-body">
         <p>{{ note.description }}</p>
@@ -79,6 +79,7 @@ export default {
   p {
     margin: 0;
     color: orangered;
+    cursor: pointer;
   }
 }
 .note-body {

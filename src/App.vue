@@ -9,7 +9,6 @@
 
           <!--new note-->
           <NewNote
-            :note="note"
             @add-note="addNote"
           />
 
@@ -19,7 +18,6 @@
 
             <!--search-->
             <Search
-              :value="search"
               placeholder="Find your note"
               @search="search = $event"
             />
@@ -62,25 +60,34 @@ export default {
       search: '',
       message: null,
       grid: true,
-      note: {
-        title: '',
-        description: '',
-      },
+      lastID: 3,
       notes: [
         {
+          id: 1,
           title: 'First Note',
           description: 'Description for first note',
           date: new Date().toLocaleString(),
+          isLowPriority: false,
+          isMediumPriority: false,
+          isHighPriority: false,
         },
         {
+          id: 2,
           title: 'Second Note',
           description: 'Description for second note',
           date: new Date().toLocaleString(),
+          isLowPriority: false,
+          isMediumPriority: false,
+          isHighPriority: false,
         },
         {
+          id: 3,
           title: 'Third Note',
           description: 'Description for third note',
           date: new Date().toLocaleString(),
+          isLowPriority: false,
+          isMediumPriority: false,
+          isHighPriority: false,
         },
       ],
     }
@@ -102,26 +109,31 @@ export default {
     }
   },
   methods: {
-    addNote() {
-      // console.log(this.note);
-      const {title, description} = this.note;
+    addNote(note) {
+      const {title, description, isLowPriority, isMediumPriority, isHighPriority} = note;
       if (title === '') {
         this.message = 'Title can`t be blank';
         return;
       }
+
+      this.lastID = this.lastID + 1;
       this.notes.push({
+        id: this.lastID,
         title,
         description,
         date: new Date().toLocaleString(),
+        isLowPriority,
+        isMediumPriority,
+        isHighPriority,
       });
 
+      console.log(this.notes);
       this.message = null;
-      this.note.title = '';
-      this.note.description = '';
     },
-    removeNote(index) {
+    removeNote(id) {
+      const index = this.notes.findIndex((note) => note.id === id);
       this.notes.splice(index, 1);
-    }
+    },
   }
 }
 </script>

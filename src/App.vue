@@ -90,7 +90,7 @@ export default {
           isHighPriority: false,
         },
       ],
-    }
+    };
   },
   computed: {
     notesFilter() {
@@ -127,15 +127,14 @@ export default {
         isHighPriority,
       });
 
-      console.log(this.notes);
       this.message = null;
     },
     removeNote(id) {
       const index = this.notes.findIndex((note) => note.id === id);
       this.notes.splice(index, 1);
     },
-  }
-}
+  },
+};
 </script>
 
 <style lang="scss">

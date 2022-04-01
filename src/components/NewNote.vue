@@ -52,7 +52,7 @@ export default {
         isMediumPriority: false,
         isHighPriority: false,
       },
-    }
+    };
   },
   methods: {
     toggleLowPriority() {
@@ -72,14 +72,17 @@ export default {
     },
     addNote() {
       this.$emit('add-note', this.note);
+      if (this.note.title === '') {
+        return;
+      }
       this.note.title = '';
       this.note.description = '';
       this.note.isLowPriority = false;
       this.note.isMediumPriority = false;
       this.note. isHighPriority = false;
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="scss">

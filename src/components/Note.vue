@@ -36,7 +36,7 @@ export default {
   data() {
     return {
       isEdit: false,
-    }
+    };
   },
   props: {
     note: {
@@ -56,7 +56,7 @@ export default {
       this.isEdit = false;
     },
   },
-}
+};
 </script>
 
 <style lang="scss">

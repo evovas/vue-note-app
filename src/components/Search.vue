@@ -19,18 +19,17 @@ export default {
     placeholder: {
       type: String,
       default: 'Search'
-    }
+    },
   },
   data() {
-    return { search: '' }
+    return { search: '' };
   },
   watch: {
     search(val) {
-      // console.log(val)
       this.$emit('search', val);
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style scoped>

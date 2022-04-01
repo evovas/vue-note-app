@@ -30,7 +30,7 @@ export default {
       this.$emit('remove-note', id);
     },
   },
-}
+};
 </script>
 
 <style lang="scss">

@@ -11,13 +11,18 @@ export default {
     message: {
       type: String,
       required: true,
-      // default: 'default message'
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
-<!--scoped ограничивает применение стилей к конкретному компоненту-->
-<style scoped>
-
+<style lang="scss">
+.message {
+  h2 {
+    text-align: center;
+    tab-size: 20px;
+    font-weight: normal;
+    color: #fc5c65;
+  }
+}
 </style>

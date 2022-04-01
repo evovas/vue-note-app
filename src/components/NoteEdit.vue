@@ -18,7 +18,7 @@ export default {
     return {
       previousTitle: this.note.title,
       previousDescription: this.note.description,
-    }
+    };
   },
   props: {
     note: {
@@ -35,9 +35,9 @@ export default {
     editNote() {
       this.note.date = new Date().toLocaleString();
       this.$emit('stop-edit');
-    }
+    },
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
